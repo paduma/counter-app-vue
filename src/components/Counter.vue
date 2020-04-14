@@ -2,14 +2,14 @@
   <div>
     <h2 :class="getBadgeClasses()">{{ formatCount() }}</h2>
     <button class="btn btn-secondary btn-sm" @click="handlerIncrement()">Increment</button>
-    <button class="btn btn-danger btn-sm m-2" @click="deleteCounter(counter.id)">Delete</button>
+    <button class="btn btn-danger btn-sm m-2" @click="deleteCounter()">Delete</button>
   </div>
 </template>
 
 <script>
 export default {
 
-  props: ['counter', 'deleteCounter'],
+  props: ['counter'],
   methods: {
     formatCount () {
       const { value } = this.counter
@@ -23,6 +23,9 @@ export default {
     },
     handlerIncrement () {
       return this.counter.value++
+    },
+    deleteCounter () {
+      this.$emit('deleteEvent', this.counter.id)
     }
   }
 }

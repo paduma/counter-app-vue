@@ -1,7 +1,7 @@
 <template>
   <div>
     <button class="btn btn-primary btn-sm m-2" @click="reset">Reset</button>
-    <Counter v-for="counter in counters" :key="counter.id" :counter="counter" :deleteCounter="deleteCounter" />
+    <Counter v-for="counter in counters" :key="counter.id" :counter="counter" @deleteEvent="deleteCounter" />
   </div>
 </template>
 
