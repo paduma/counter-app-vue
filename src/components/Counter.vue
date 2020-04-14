@@ -8,27 +8,21 @@
 
 <script>
 export default {
-  data () {
-    return {
-      count: this.counter.value
-    }
-  },
-  props: {
-    counter: Object,
-    deleteCounter: Function
-  },
+
+  props: ['counter', 'deleteCounter'],
   methods: {
     formatCount () {
-      return this.count === 0 ? 'Zero' : this.count
+      const { value } = this.counter
+      return value === 0 ? 'Zero' : value
     },
     getBadgeClasses () {
       let classes = 'badge m-2 badge-'
-      classes += this.count === 0 ? 'warning' : 'primary'
+      classes += this.counter.value === 0 ? 'warning' : 'primary'
 
       return classes
     },
     handlerIncrement () {
-      return this.count++
+      return this.counter.value++
     }
   }
 }

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button class="btn btn-primary btn-sm m-2" @click="reset">Reset</button>
     <Counter v-for="counter in counters" :key="counter.id" :counter="counter" :deleteCounter="deleteCounter" />
   </div>
 </template>
@@ -24,6 +25,13 @@ export default {
   methods: {
     deleteCounter (counterId) {
       this.counters = this.counters.filter(c => c.id !== counterId)
+    },
+    reset () {
+      const counters = this.counters.map(c => {
+        c.value = 0
+        return c
+      })
+      this.counters = counters
     }
   }
 }
