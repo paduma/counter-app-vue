@@ -24,7 +24,6 @@ export default {
     getBadgeClasses () {
       let classes = 'badge m-2 badge-'
       classes += this.count === 0 ? 'warning' : 'primary'
-
       return classes
     },
     handlerIncrement () {
